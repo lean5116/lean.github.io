@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="zh-Hans" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LeanBlog</title><meta name="description" content="Lean学习笔记"><meta name="author" content="Lean"><meta name="copyright" content="Lean"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://yoursite.com/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="website"><meta property="og:title" content="LeanBlog"><meta property="og:url" content="http://yoursite.com/"><meta property="og:site_name" content="LeanBlog"><meta property="og:description" content="Lean学习笔记"><meta property="og:image" content="http://yoursite.com/img/avatar.png"><meta property="article:published_time" content="2020-07-06T00:59:26.060Z"><meta property="article:modified_time" content="2020-07-06T00:59:26.060Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(https://i.loli.net/2020/05/01/IuWi8QbHvzjlOPw.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">LeanBlog</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">LeanBlog</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/05/mssql%E5%AD%A6%E4%B9%A0/" title="mssql学习">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="mssql学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/mssql%E5%AD%A6%E4%B9%A0/" title="mssql学习">mssql学习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 21:31:31"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="content">SQLTCP/IP  启用  1433
+任务→生成脚本→高级：架构（只有空表） 数据（只要数据） ：生成脚本后
+char/varchar:char是固定长度，不够时用空格补齐，超过报错，varchar,是可变长度；能固定尽量固定。
+char/nchar:有n表示Unicode编码，每个字符占两个字节
+​                     没有n表示非Unicode编码，英文或数字占一个字符，中文占两个字符
+​                      如有有中文带n，不带中文不带n
+唯一约束： 右键→索引/键→添加→类型→唯一键
+注释：单行注释–   多行注释/**/
+数据库的创建与删除数据库没有改，只能创建删除
+创建create1234567891011121314create database 数据库名 on primary(name='studb_data',         --主数据文件的逻辑名称filename='D:\studb_data.mdf',    --主数据文件的物理名称szie=5md,            --主数据文件的初始大小      maxs ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/05/SpringMVC%E5%AD%A6%E4%B9%A0/" title="SpringMVC学习">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SpringMVC学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/SpringMVC%E5%AD%A6%E4%B9%A0/" title="SpringMVC学习">SpringMVC学习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 21:14:44"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/SSM%E6%A1%86%E6%9E%B6/">SSM框架</a></span></div><div class="content">SpringMVC官方文档：https://docs.spring.io/spring/docs/5.2.0.RELEASE/spring-framework-reference/web.html#spring-web
+Spring的web框架围绕DispatcherServlet [ 调度Servlet ] 设计。
+1、MVC1.1、什么是MVC
+MVC是模型(Model)、视图(View)、控制器(Controller)的简写，是一种软件设计规范。
+是将业务逻辑、数据、显示分离的方法来组织代码。
+MVC主要作用是降低了视图与业务逻辑间的双向偶合。
+MVC不是一种设计模式，MVC是一种架构模式。当然不同的MVC存在差异。
+
+Model（模型）：数据模型，提供要展示的数据，因此包含数据和行为，可以认为是领域模型或JavaBean组件（包含数据和行为），不过现在一般都分离开来：Value Object（数据Dao） 和 服务层（行为Service）。也就是模型提供了模型数据查询和模型数据的状态更新等功能，包括数据和业务。
+View（视图）：负责进行模型的展示，一般就是我们见到的用户界面， ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/05/Spring%E5%AD%A6%E4%B9%A0/" title="Spring学习">     <img class="post_bg" data-src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/Spring%E5%AD%A6%E4%B9%A0/" title="Spring学习">Spring学习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 18:08:05"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/SSM%E6%A1%86%E6%9E%B6/">SSM框架</a></span></div><div class="content">SpringSpring理念 : 使现有技术更加实用 . 本身就是一个大杂烩 , 整合现有的框架技术
+官网 : http://spring.io/
+官方下载地址 : https://repo.spring.io/libs-release-local/org/springframework/spring/
+GitHub : https://github.com/spring-projects
+1、IOC1.1、IOC基础新建一个空白的maven项目
+
+分析实现
+
+我们先用我们原来的方式写一段代码 .
+1、先写一个UserDao接口
+123public interface UserDao &#123;   public void getUser();&#125;
+
+2、再去写Dao的实现类
+123456public class UserDaoImpl implements UserDao &#123;   @Override   public void getUser() &#123;       System.out.println("获取用户数据");  &#125;&#125;
+
+3 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/05/Mybatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习">     <img class="post_bg" data-src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mybatis学习"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/Mybatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习">Mybatis学习</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 14:46:50"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/SSM%E6%A1%86%E6%9E%B6/">SSM框架</a></span></div><div class="content">Mybatis源码阅读：https://github.com/tuguangquan/mybatis
+1、基本配置1.1、导入依赖12345678910111213141516171819    &lt;dependencies&gt;&lt;!--Mybatis--&gt;        &lt;dependency&gt;            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;            &lt;version&gt;3.5.2&lt;/version&gt;        &lt;/dependency&gt;&lt;!--MySql驱动        --&gt;        &lt;dependency&gt;            &lt;groupId&gt;mysql&lt;/groupId&gt;            &lt;artifactId&gt;mysql-connector-jav ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/05/Mybatis%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/" title="Mybatis官方文档">     <img class="post_bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Mybatis官方文档"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/Mybatis%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/" title="Mybatis官方文档">Mybatis官方文档</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 14:46:50"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/Mybatis/">Mybatis</a></span></div><div class="content">Mybatis官方文档：https://mybatis.org/mybatis-3/zh/index.html
+官网实在太卡。先本地化；
+入门安装要使用 MyBatis， 只需将 mybatis-x.x.x.jar 文件置于类路径（classpath）中即可。
+如果使用 Maven 来构建项目，则需将下面的依赖代码置于 pom.xml 文件中：
+12345&lt;dependency&gt;  &lt;groupId&gt;org.mybatis&lt;/groupId&gt;  &lt;artifactId&gt;mybatis&lt;/artifactId&gt;  &lt;version&gt;x.x.x&lt;/version&gt;&lt;/dependency&gt;
+
+从 XML 中构建 SqlSessionFactory每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilde ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/05/javaWeb%E5%AD%A6%E4%B9%A0/" title="javaWeb学习 ">     <img class="post_bg" data-src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="javaWeb学习 "></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/05/javaWeb%E5%AD%A6%E4%B9%A0/" title="javaWeb学习 ">javaWeb学习 </a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-05 12:27:14"><i class="far fa-calendar-alt"></i>2020-07-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/JavaWeb%E5%9F%BA%E7%A1%80/">JavaWeb基础</a></span></div><div class="content">1、javaWeb1、基本概念1.1 、静态web
+
+1.2、动态web
+
+2、Tomcat2.1、解决Tomcat控制台乱码在config目录下的logging.properties 添加如下配置
+1java.util.logging.ConsoleHandler.encoding = GBK
+
+
+
+2.2、端口修改在config目录下的server.xml中修改
+
+
+123&lt;Connector port="8080" protocol="HTTP/1.1"              connectionTimeout="20000"              redirectPort="8443" URIEncoding="utf-8"/&gt;
+
+也可修改hostname 为自定义名称
+
+
+12&lt;Host name="localhost"  appBase="webapps"          unpackWARs="true" autoDeploy="true"&gt;
+
+2.3、服务器访问逻辑
+
+2.4、环境变量tomcat环境变量还是不要配比较好
+2.5、网页发 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2020/07/02/Vue-Sample/" title="Vue Sample">     <img class="post_bg" data-src="/img/cover4.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Vue Sample"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/02/Vue-Sample/" title="Vue Sample">Vue Sample</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-02 22:20:10"><i class="far fa-calendar-alt"></i>2020-07-02</time></div><div class="content">Vue基础Vue快速体验1. Vue介绍1.1 Vue是什么
+Vue.JS是优秀的前端 JavaScript 框架
+react/angular/vue
+
+库和框架的区别:
+
+库(如jQuery)
+库是工具. 提供大量API，体现了封装的思想、需要自己调用这些API
+
+框架
+框架提供了一套完整解决方案,
+使用者要按照框架所规定的某种规范进行开发 
+
+
+1.2 为什么要学习 Vue传统开发模式: JQuery+RequireJS/SeaJS+artTemplate+Gulp/Grunt
+随着项目业务场景的复杂,传统模式已无法满足需求
+就出现了Angular/React/Vue等框架
+
+企业需求
+主流框架之一(React Angular Vue)
+易用、灵活、高效
+
+1.3 Vue 能做什么
+最大程度上解放了 DOM 操作
+单页web项目(SinglePageApplication项目,例如Worktile官网)开发
+传统网站开发
+
+1.4 核心特性
+双向数据绑定
+vue(借鉴了react的虚拟DOM,借鉴了angular双向数据绑定)
+
+
+通过 指令 扩展了 HTML，通过 表达式 绑定数 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2020/07/02/hello-world/" title="Hello World">     <img class="post_bg" data-src="/img/cover2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2020/07/02/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2020-07-02 21:23:25"><i class="far fa-calendar-alt"></i>2020-07-02</time></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Lean</div><div class="author-info__description">Lean学习笔记</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">8</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">4</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/xxxxx" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Lean的学习笔记</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/2020/07/05/mssql%E5%AD%A6%E4%B9%A0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="mssql学习" alt="mssql学习"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/05/mssql%E5%AD%A6%E4%B9%A0/" title="mssql学习">mssql学习</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-05 21:31:31">2020-07-05</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/05/SpringMVC%E5%AD%A6%E4%B9%A0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="SpringMVC学习" alt="SpringMVC学习"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/05/SpringMVC%E5%AD%A6%E4%B9%A0/" title="SpringMVC学习">SpringMVC学习</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-05 21:14:44">2020-07-05</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/05/Spring%E5%AD%A6%E4%B9%A0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Spring学习" alt="Spring学习"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/05/Spring%E5%AD%A6%E4%B9%A0/" title="Spring学习">Spring学习</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-05 18:08:05">2020-07-05</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/05/Mybatis%E5%AD%A6%E4%B9%A0/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="/img/cover6.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Mybatis学习" alt="Mybatis学习"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/05/Mybatis%E5%AD%A6%E4%B9%A0/" title="Mybatis学习">Mybatis学习</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-05 14:46:50">2020-07-05</time></div></a></div><div class="aside-recent-post"><a href="/2020/07/05/Mybatis%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Mybatis官方文档" alt="Mybatis官方文档"/></div><div class="aside-post-title"><div class="aside-post_title" href="/2020/07/05/Mybatis%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3/" title="Mybatis官方文档">Mybatis官方文档</div><time class="aside-post_meta post-meta__date" title="发表于 2020-07-05 14:46:50">2020-07-05</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaWeb%E5%9F%BA%E7%A1%80/"><span class="card-category-list-name">JavaWeb基础</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Mybatis/"><span class="card-category-list-name">Mybatis</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/SSM%E6%A1%86%E6%9E%B6/"><span class="card-category-list-name">SSM框架</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">1</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2020/07/"><span class="card-archive-list-date">July 2020</span><span class="card-archive-list-count">8</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">8</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 By Lean</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button class="translate_chn_to_cht" id="translateLink" title="简繁转换">简</button><button id="darkmode" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleEffect = true
+if (subtitleEffect) { 
+  var typed = new Typed("#subtitle", {
+    strings: "今日事&#44;今日毕,Never put off till tomorrow what you can do today".split(","),
+    startDelay: 300,
+    typeSpeed: 150,
+    loop: true,
+    backSpeed: 50
+  })
+} else {
+  document.getElementById("subtitle").innerHTML = '今日事&#44;今日毕'
+}</script></body></html>
